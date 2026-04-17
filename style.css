@@ -638,7 +638,6 @@ nav ul li a:hover { color: var(--accent); }
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 1.5px;
-    text-transform: uppercase;
     color: var(--text-faint);
 }
 
