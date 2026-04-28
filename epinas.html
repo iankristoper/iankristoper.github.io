@@ -1,1 +1,331 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Coming Soon — dev_ian</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* page-specific additions using your existing theme */
+.construction-hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.construction-wrap{
+    padding:120px 0 90px;
+}
+
+.build-status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:30px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    animation:pulse 2s infinite;
+}
+
+.coming-grid{
+    display:grid;
+    grid-template-columns:1.3fr .8fr;
+    gap:70px;
+    align-items:end;
+}
+
+.coming-title{
+    font-size:clamp(60px,10vw,120px);
+    line-height:.92;
+    letter-spacing:-5px;
+    font-weight:800;
+    margin-bottom:35px;
+}
+
+.coming-title em{
+    color:var(--accent);
+    font-style:normal;
+}
+
+.coming-sub{
+    max-width:520px;
+    font-size:17px;
+    line-height:1.8;
+    color:var(--text-muted);
+    border-left:2px solid var(--border-light);
+    padding-left:20px;
+}
+
+.build-panel{
+    border:1px solid var(--border-light);
+    background:var(--bg-card);
+}
+
+.panel-row{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 24px;
+    border-bottom:1px solid var(--border-light);
+}
+
+.panel-row:last-child{
+    border-bottom:none;
+}
+
+.panel-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--text-faint);
+}
+
+.panel-value{
+    font-weight:700;
+}
+
+.progress-block{
+    margin-top:70px;
+    border-top:1px solid var(--border-light);
+    padding-top:32px;
+}
+
+.progress-bar{
+    height:6px;
+    background:var(--border-light);
+    overflow:hidden;
+    margin:18px 0;
+}
+
+.progress-fill{
+    width:68%;
+    height:100%;
+    background:var(--accent);
+    animation:loadbar 3s ease infinite alternate;
+}
+
+@keyframes loadbar{
+    from{ width:62%; }
+    to{ width:78%; }
+}
+
+.terminal-box{
+    margin-top:60px;
+    background:var(--bg-card);
+    border:1px solid var(--border-light);
+}
+
+.terminal-head{
+    padding:14px 20px;
+    border-bottom:1px solid var(--border-light);
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+}
+
+.terminal-body{
+    padding:28px;
+    font-family:var(--font-mono);
+    line-height:2;
+    color:var(--text-muted);
+}
+
+.terminal-body span{
+    color:var(--accent);
+}
+
+.hero-cta-row{
+    margin-top:45px;
+}
+
+@media(max-width:900px){
+.coming-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container header-content">
+
+<a href="index.html" class="logo">
+<i class="fas fa-terminal"></i>
+</a>
+
+<nav>
+<ul>
+<li><a href="index.html"><i class="fas fa-arrow-left"></i> Back</a></li>
+<li>
+<a href="Ian_Backend_Resume.pdf" target="_blank" class="nav-resume-btn">
+<i class="fas fa-file-pdf"></i> CV
+</a>
+</li>
+</ul>
+</nav>
+
+<button id="themeToggle" class="theme-toggle-btn">
+<i class="fas fa-moon" id="themeIcon"></i>
+</button>
+
+</div>
+</header>
+
+
+<section class="construction-hero">
+<div class="container construction-wrap">
+
+<div class="build-status">
+<span class="status-dot"></span>
+Page under construction
+</div>
+
+<div class="coming-grid">
+
+<div>
+<h1 class="coming-title">
+Something<br>
+cool is<br>
+<em>coming.</em>
+</h1>
+
+<p class="coming-sub">
+This project page is currently being built out.
+Architecture, features, and case study details are still in progress.
+Check back soon for the full breakdown.
+</p>
+
+<div class="hero-cta-row">
+<a href="index.html#work" class="cta-link">
+View other work <span>↓</span>
+</a>
+
+<a href="mailto:your.email@example.com" class="cta-link">
+Contact me <span>→</span>
+</a>
+</div>
+</div>
+
+
+<div class="build-panel">
+
+<div class="panel-row">
+<span class="panel-label">STATUS</span>
+<span class="panel-value">Building</span>
+</div>
+
+<div class="panel-row">
+<span class="panel-label">STACK</span>
+<span class="panel-value">Java / Spring</span>
+</div>
+
+<div class="panel-row">
+<span class="panel-label">ETA</span>
+<span class="panel-value">Coming Soon</span>
+</div>
+
+<div class="panel-row">
+<span class="panel-label">VERSION</span>
+<span class="panel-value">v0.8</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="progress-block">
+<div class="section-eyebrow">Build Progress</div>
+
+<div class="hero-bottom">
+
+<div>
+<div class="stat-num accent">68%</div>
+<div class="stat-label">Completed</div>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</div>
+</div>
+
+
+<div class="terminal-box">
+<div class="terminal-head">
+<i class="fas fa-terminal"></i> deployment.log
+</div>
+
+<div class="terminal-body">
+> initializing project...<br>
+> compiling backend modules...<br>
+> deploying feature set...<br>
+<span>> launch pending</span>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<footer class="site-footer">
+<div class="container footer-inner">
+<span class="footer-mono">© 2026 dev_ian</span>
+<span class="footer-mono">still building.</span>
+</div>
+</footer>
+
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const icon = document.getElementById('themeIcon');
+
+function applyTheme(dark){
+document.body.setAttribute(
+'data-theme',
+dark ? 'dark' : 'light'
+);
+icon.className = dark
+? 'fas fa-sun'
+: 'fas fa-moon';
+}
+
+applyTheme(
+localStorage.getItem('theme')==='dark'
+);
+
+toggle.addEventListener('click',()=>{
+const isDark=
+document.body.getAttribute('data-theme')==='dark';
+
+localStorage.setItem(
+'theme',
+isDark ? 'light':'dark'
+);
+
+applyTheme(!isDark);
+});
+</script>
+
+</body>
+</html>
