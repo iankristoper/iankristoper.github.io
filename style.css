@@ -154,7 +154,7 @@ nav ul li a:hover { color: var(--accent); }
 
 .hero-eyebrow {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
