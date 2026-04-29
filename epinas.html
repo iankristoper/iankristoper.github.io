@@ -1,330 +1,427 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Coming Soon — dev_ian</title>
-
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* page-specific additions using your existing theme */
-.construction-hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
+.cs-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.construction-wrap{
-    padding:120px 0 90px;
+.cs-main {
+    flex: 1;
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
 }
 
-.build-status{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:var(--font-mono);
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:30px;
+.cs-wrap {
+    padding: 80px 0 80px;
+    width: 100%;
 }
 
-.status-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--accent);
-    animation:pulse 2s infinite;
+/* ---- eyebrow ---- */
+.cs-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 40px;
 }
 
-.coming-grid{
-    display:grid;
-    grid-template-columns:1.3fr .8fr;
-    gap:70px;
-    align-items:end;
+/* ---- header row ---- */
+.cs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
 }
 
-.coming-title{
-    font-size:clamp(60px,10vw,120px);
-    line-height:.92;
-    letter-spacing:-5px;
-    font-weight:800;
-    margin-bottom:35px;
+.cs-title {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--text-main);
 }
 
-.coming-title em{
-    color:var(--accent);
-    font-style:normal;
+.cs-title em {
+    font-style: normal;
+    color: var(--accent);
 }
 
-.coming-sub{
-    max-width:520px;
-    font-size:17px;
-    line-height:1.8;
-    color:var(--text-muted);
-    border-left:2px solid var(--border-light);
-    padding-left:20px;
+.cs-sub {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 360px;
+    border-left: 2px solid var(--border-light);
+    padding-left: 18px;
+    flex-shrink: 0;
+    align-self: flex-end;
 }
 
-.build-panel{
-    border:1px solid var(--border-light);
-    background:var(--bg-card);
+/* ---- meta table ---- */
+.cs-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
+    margin-top: 40px;
 }
 
-.panel-row{
-    display:flex;
-    justify-content:space-between;
-    padding:18px 24px;
-    border-bottom:1px solid var(--border-light);
+.cs-meta-cell {
+    padding: 20px 24px;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
 }
 
-.panel-row:last-child{
-    border-bottom:none;
+.cs-meta-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
 }
 
-.panel-label{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:1px;
-    color:var(--text-faint);
+.cs-meta-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
 }
 
-.panel-value{
-    font-weight:700;
+.cs-meta-value.accent { color: var(--accent); }
+
+/* ---- deadline block ---- */
+.cs-deadline {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent);
+    margin-top: 40px;
+    background: var(--bg-card);
 }
 
-.progress-block{
-    margin-top:70px;
-    border-top:1px solid var(--border-light);
-    padding-top:32px;
+.cs-deadline-main {
+    flex: 1;
+    padding: 24px 28px;
+    border-right: 1px solid var(--border-light);
 }
 
-.progress-bar{
-    height:6px;
-    background:var(--border-light);
-    overflow:hidden;
-    margin:18px 0;
+.cs-deadline-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
 }
 
-.progress-fill{
-    width:68%;
-    height:100%;
-    background:var(--accent);
-    animation:loadbar 3s ease infinite alternate;
+.cs-deadline-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
 }
 
-@keyframes loadbar{
-    from{ width:62%; }
-    to{ width:78%; }
+.cs-deadline-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
 }
 
-.terminal-box{
-    margin-top:60px;
-    background:var(--bg-card);
-    border:1px solid var(--border-light);
+.cs-deadline-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 36px;
+    gap: 2px;
 }
 
-.terminal-head{
-    padding:14px 20px;
-    border-bottom:1px solid var(--border-light);
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--text-faint);
+.cs-days-num {
+    font-family: var(--font-mono);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
 }
 
-.terminal-body{
-    padding:28px;
-    font-family:var(--font-mono);
-    line-height:2;
-    color:var(--text-muted);
+.cs-days-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
 }
 
-.terminal-body span{
-    color:var(--accent);
+.cs-deadline.urgent { border-left-color: #e67e22; }
+.cs-deadline.urgent .cs-deadline-label,
+.cs-deadline.urgent .cs-days-num { color: #e67e22; }
+.cs-deadline.overdue { border-left-color: #e74c3c; }
+.cs-deadline.overdue .cs-deadline-label,
+.cs-deadline.overdue .cs-days-num { color: #e74c3c; }
+
+/* ---- progress ---- */
+.cs-progress {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
-.hero-cta-row{
-    margin-top:45px;
+.cs-progress-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    white-space: nowrap;
 }
 
-@media(max-width:900px){
-.coming-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
+.cs-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: var(--border-light);
+    overflow: hidden;
 }
 
+.cs-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 1s ease;
+}
+
+.cs-progress-pct {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+/* ---- cta row ---- */
+.cs-cta {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-light);
+    flex-wrap: wrap;
+}
+
+/* ---- mobile ---- */
+@media (max-width: 768px) {
+    .cs-wrap { padding: 48px 0 60px; }
+
+    .cs-header {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .cs-sub {
+        max-width: 100%;
+        align-self: flex-start;
+    }
+
+    .cs-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cs-deadline {
+        flex-direction: column;
+    }
+
+    .cs-deadline-main {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .cs-deadline-count {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 16px 28px;
+        gap: 12px;
+        align-items: baseline;
+    }
+
+    .cs-days-num { font-size: 1.8rem; }
+
+    .cs-progress { flex-wrap: wrap; gap: 16px; }
+
+    .cs-cta { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+    .cs-title { letter-spacing: -1px; }
+    .cs-meta { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container header-content">
-
-<a href="index.html" class="logo">
-<i class="fas fa-terminal"></i>
-</a>
-
-<nav>
-<ul>
-<li><a href="index.html"><i class="fas fa-arrow-left"></i> Back</a></li>
-<li>
-<a href="Ian_Backend_Resume.pdf" target="_blank" class="nav-resume-btn">
-<i class="fas fa-file-pdf"></i> CV
-</a>
-</li>
-</ul>
-</nav>
-
-<button id="themeToggle" class="theme-toggle-btn">
-<i class="fas fa-moon" id="themeIcon"></i>
-</button>
-
-</div>
+    <div class="container header-content">
+        <a href="index.html" class="logo">
+            <i class="fas fa-terminal"></i>
+        </a>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Back</a></li>
+                <li>
+                    <a href="Ian_Backend_Resume.pdf" target="_blank" class="nav-resume-btn">
+                        <i class="fas fa-file-pdf"></i> CV
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+    </div>
 </header>
 
+<div class="cs-page">
+    <section class="cs-main">
+        <div class="container cs-wrap">
 
-<section class="construction-hero">
-<div class="container construction-wrap">
+            <div class="cs-eyebrow">Project · Under Construction</div>
 
-<div class="build-status">
-<span class="status-dot"></span>
-Page under construction
+            <div class="cs-header">
+                <h1 class="cs-title">
+                    Something<br>
+                    good is<br>
+                    <em>coming.</em>
+                </h1>
+                <p class="cs-sub">
+                    This project page is being built out. Architecture,
+                    features, and case study details are still in progress.
+                    Check back soon for the full breakdown.
+                </p>
+            </div>
+
+            <div class="cs-meta">
+                <div class="cs-meta-cell">
+                    <div class="cs-meta-label">Status</div>
+                    <div class="cs-meta-value accent">In Progress</div>
+                </div>
+                <div class="cs-meta-cell">
+                    <div class="cs-meta-label">Stack</div>
+                    <div class="cs-meta-value">Java / Spring</div>
+                </div>
+                <div class="cs-meta-cell">
+                    <div class="cs-meta-label">Type</div>
+                    <div class="cs-meta-value">Backend</div>
+                </div>
+                <div class="cs-meta-cell">
+                    <div class="cs-meta-label">Version</div>
+                    <div class="cs-meta-value">v1.0</div>
+                </div>
+            </div>
+
+            <div class="cs-deadline" id="csDeadline">
+                <div class="cs-deadline-main">
+                    <div class="cs-deadline-label">Target Launch</div>
+                    <div class="cs-deadline-name" id="csName">Project Launch</div>
+                    <div class="cs-deadline-date" id="csDate">Loading...</div>
+                </div>
+                <div class="cs-deadline-count">
+                    <div class="cs-days-num" id="csDays">--</div>
+                    <div class="cs-days-label">Days Left</div>
+                </div>
+            </div>
+
+            <div class="cs-progress">
+                <span class="cs-progress-label">Build Progress</span>
+                <div class="cs-bar-wrap">
+                    <div class="cs-bar-fill" id="csBarFill" style="width: 0%"></div>
+                </div>
+                <span class="cs-progress-pct" id="csPct">0%</span>
+            </div>
+
+            <div class="cs-cta">
+                <a href="index.html#work" class="cta-link">View other work <span>↓</span></a>
+                <a href="mailto:your.email@example.com" class="cta-link">Contact me <span>→</span></a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span class="footer-mono">© 2026 dev_ian</span>
+            <span class="footer-mono">still building.</span>
+        </div>
+    </footer>
 </div>
-
-<div class="coming-grid">
-
-<div>
-<h1 class="coming-title">
-Something<br>
-cool is<br>
-<em>coming.</em>
-</h1>
-
-<p class="coming-sub">
-This project page is currently being built out.
-Architecture, features, and case study details are still in progress.
-Check back soon for the full breakdown.
-</p>
-
-<div class="hero-cta-row">
-<a href="index.html#work" class="cta-link">
-View other work <span>↓</span>
-</a>
-
-<a href="mailto:your.email@example.com" class="cta-link">
-Contact me <span>→</span>
-</a>
-</div>
-</div>
-
-
-<div class="build-panel">
-
-<div class="panel-row">
-<span class="panel-label">STATUS</span>
-<span class="panel-value">Building</span>
-</div>
-
-<div class="panel-row">
-<span class="panel-label">STACK</span>
-<span class="panel-value">Java / Spring</span>
-</div>
-
-<div class="panel-row">
-<span class="panel-label">ETA</span>
-<span class="panel-value">Coming Soon</span>
-</div>
-
-<div class="panel-row">
-<span class="panel-label">VERSION</span>
-<span class="panel-value">v0.8</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="progress-block">
-<div class="section-eyebrow">Build Progress</div>
-
-<div class="hero-bottom">
-
-<div>
-<div class="stat-num accent">68%</div>
-<div class="stat-label">Completed</div>
-</div>
-
-<div class="progress-bar">
-<div class="progress-fill"></div>
-</div>
-
-</div>
-</div>
-
-
-<div class="terminal-box">
-<div class="terminal-head">
-<i class="fas fa-terminal"></i> deployment.log
-</div>
-
-<div class="terminal-body">
-> initializing project...<br>
-> compiling backend modules...<br>
-> deploying feature set...<br>
-<span>> launch pending</span>
-</div>
-</div>
-
-</div>
-</section>
-
-
-<footer class="site-footer">
-<div class="container footer-inner">
-<span class="footer-mono">© 2026 dev_ian</span>
-<span class="footer-mono">still building.</span>
-</div>
-</footer>
-
 
 <script>
-const toggle = document.getElementById('themeToggle');
-const icon = document.getElementById('themeIcon');
+    /* ---- config: set these per project ---- */
+    const START_DATE  = '2026-04-01';
+    const TARGET_DATE = '2026-07-01';
+    const PROJECT_NAME = 'Project Launch';
 
-function applyTheme(dark){
-document.body.setAttribute(
-'data-theme',
-dark ? 'dark' : 'light'
-);
-icon.className = dark
-? 'fas fa-sun'
-: 'fas fa-moon';
-}
+    /* ---- deadline timer ---- */
+    function updateTimer() {
+        const start  = new Date(START_DATE);
+        const target = new Date(TARGET_DATE);
+        const today  = new Date();
 
-applyTheme(
-localStorage.getItem('theme')==='dark'
-);
+        [start, target, today].forEach(d => d.setHours(0,0,0,0));
 
-toggle.addEventListener('click',()=>{
-const isDark=
-document.body.getAttribute('data-theme')==='dark';
+        const totalDays = Math.ceil((target - start)  / 864e5);
+        const daysLeft  = Math.ceil((target - today)  / 864e5);
+        const elapsed   = totalDays - daysLeft;
+        const pct       = Math.min(100, Math.max(0, Math.round((elapsed / totalDays) * 100)));
 
-localStorage.setItem(
-'theme',
-isDark ? 'light':'dark'
-);
+        const el = document.getElementById('csDeadline');
+        document.getElementById('csName').textContent = PROJECT_NAME;
+        document.getElementById('csDays').textContent = daysLeft > 0 ? daysLeft : 0;
+        document.getElementById('csDate').textContent =
+            'Due ' + target.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
 
-applyTheme(!isDark);
-});
+        document.getElementById('csBarFill').style.width = pct + '%';
+        document.getElementById('csPct').textContent     = pct + '%';
+
+        el.classList.remove('urgent','overdue');
+        if (daysLeft <= 0)  el.classList.add('overdue');
+        else if (daysLeft <= 14) el.classList.add('urgent');
+    }
+
+    updateTimer();
+
+    /* ---- dark mode ---- */
+    const toggle = document.getElementById('themeToggle');
+    const icon   = document.getElementById('themeIcon');
+
+    function applyTheme(dark) {
+        document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+        icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    applyTheme(localStorage.getItem('theme') === 'dark');
+
+    toggle.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        applyTheme(!isDark);
+    });
 </script>
 
 </body>
