@@ -229,6 +229,8 @@
 @media (max-width: 768px) {
     .cs-wrap { padding: 48px 0 60px; }
 
+    .container { padding: 0 20px; }
+
     .cs-header {
         flex-direction: column;
         gap: 24px;
@@ -237,10 +239,15 @@
     .cs-sub {
         max-width: 100%;
         align-self: flex-start;
+        font-size: 14px;
     }
 
     .cs-meta {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .cs-meta-cell {
+        padding: 16px 18px;
     }
 
     .cs-deadline {
@@ -250,26 +257,63 @@
     .cs-deadline-main {
         border-right: none;
         border-bottom: 1px solid var(--border-light);
+        padding: 20px 20px;
     }
 
     .cs-deadline-count {
         flex-direction: row;
         justify-content: flex-start;
-        padding: 16px 28px;
-        gap: 12px;
         align-items: baseline;
+        padding: 16px 20px;
+        gap: 10px;
     }
 
     .cs-days-num { font-size: 1.8rem; }
 
-    .cs-progress { flex-wrap: wrap; gap: 16px; }
+    .cs-progress {
+        flex-wrap: nowrap;
+        gap: 12px;
+        align-items: center;
+    }
 
-    .cs-cta { gap: 20px; }
+    .cs-progress-label {
+        font-size: 8px;
+        white-space: nowrap;
+    }
+
+    .cs-progress-pct {
+        font-size: 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .cs-bar-wrap {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cs-cta {
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .cta-link {
+        font-size: 11px;
+    }
 }
 
 @media (max-width: 480px) {
-    .cs-title { letter-spacing: -1px; }
+    .cs-title {
+        font-size: clamp(2rem, 12vw, 2.8rem);
+        letter-spacing: -1px;
+    }
+
+    .cs-eyebrow { font-size: 9px; }
+
     .cs-meta { grid-template-columns: 1fr 1fr; }
+
+    .cs-meta-cell { padding: 14px 16px; }
+}
 }
 </style>
 </head>
