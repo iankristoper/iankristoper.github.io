@@ -27,7 +27,6 @@
     width: 100%;
 }
 
-/* ---- eyebrow ---- */
 .cs-eyebrow {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -38,7 +37,6 @@
     margin-top: 20px;
 }
 
-/* ---- header row ---- */
 .cs-header {
     display: flex;
     justify-content: space-between;
@@ -73,7 +71,6 @@
     align-self: flex-end;
 }
 
-/* ---- meta table ---- */
 .cs-meta {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -106,7 +103,6 @@
 
 .cs-meta-value.accent { color: var(--accent); }
 
-/* ---- deadline block ---- */
 .cs-deadline {
     display: flex;
     align-items: stretch;
@@ -176,7 +172,6 @@
 .cs-deadline.overdue .cs-deadline-label,
 .cs-deadline.overdue .cs-days-num { color: #e74c3c; }
 
-/* ---- progress ---- */
 .cs-progress {
     margin-top: 40px;
     padding-top: 32px;
@@ -216,7 +211,6 @@
     white-space: nowrap;
 }
 
-/* ---- cta row ---- */
 .cs-cta {
     display: flex;
     gap: 32px;
@@ -226,16 +220,273 @@
     flex-wrap: wrap;
 }
 
-/* ---- mobile ---- */
+/* =========================================
+   VERSION TIMELINE
+   ========================================= */
+.cs-versions {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-light);
+}
+
+.cs-versions-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+}
+
+.cv-major {
+    border: 1px solid var(--border-light);
+    margin-bottom: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.cv-major-current { border-left: 3px solid var(--accent); }
+.cv-major-planned { opacity: 0.55; }
+
+.cv-major-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-family);
+    color: var(--text-main);
+    gap: 16px;
+    transition: background-color 0.2s;
+}
+
+.cv-major-header:hover { background-color: var(--bg-body); }
+
+.cv-major-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+}
+
+.cv-major-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.cv-major-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+}
+
+.cv-major-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-top: 3px;
+}
+
+.cv-major-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 3px;
+    border: 1px solid var(--border-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cv-badge-done { background:#dcfce7; color:#166534; border-color:#bbf7d0; }
+.cv-badge-current { background:#e0f2fe; color:#094683; border-color:#bae6fd; }
+.cv-badge-planned { background:var(--bg-body); color:var(--text-faint); }
+
+[data-theme="dark"] .cv-badge-done { background:#052e16; color:#86efac; border-color:#166534; }
+[data-theme="dark"] .cv-badge-current { background:#0c2340; color:#7dd3fc; border-color:#185fa5; }
+
+.cv-status-done {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    white-space: nowrap;
+}
+
+.cv-status-current {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #e0f2fe;
+    color: #094683;
+    border: 1px solid #bae6fd;
+    white-space: nowrap;
+}
+
+.cv-pill-planned {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--bg-body);
+    color: var(--text-faint);
+    border: 1px solid var(--border-light);
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .cv-status-done { background:#052e16; color:#86efac; border-color:#166534; }
+[data-theme="dark"] .cv-status-current { background:#0c2340; color:#7dd3fc; border-color:#185fa5; }
+
+.cv-chevron {
+    font-size: 10px;
+    color: var(--text-faint);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.cv-major.cv-open .cv-chevron { transform: rotate(180deg); }
+
+.cv-minor-list {
+    border-top: 1px solid var(--border-light);
+    max-height: 800px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.cv-minor-list.cv-collapsed {
+    max-height: 0;
+    border-top: none;
+}
+
+.cv-minor {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.cv-minor:last-child { border-bottom: none; }
+
+.cv-minor-done { cursor: pointer; }
+.cv-minor-done:hover { background-color: var(--bg-body); }
+.cv-minor-done:hover .cv-minor-name { color: var(--accent); }
+.cv-minor-done:hover .cv-arrow { opacity: 1; transform: translate(2px,-2px); }
+
+.cv-minor-active { cursor: default; background-color: var(--bg-body); }
+.cv-minor-planned { cursor: default; opacity: 0.5; }
+
+.cv-minor-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cv-minor-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-faint);
+    white-space: nowrap;
+}
+
+.cv-minor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.cv-dot-done { background: #22c55e; }
+.cv-dot-active {
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    animation: pulse 2s infinite;
+}
+.cv-dot-planned { background: var(--border-light); }
+
+.cv-minor-info { display: flex; flex-direction: column; gap: 4px; }
+
+.cv-minor-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.2px;
+    transition: color 0.2s;
+}
+
+.cv-minor-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.cv-minor-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.cv-chip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: var(--bg-body);
+    color: var(--text-faint);
+    border: 1px solid var(--border-light);
+}
+
+.cv-minor-done .cv-chip {
+    background: var(--tag-bg);
+    color: var(--accent);
+}
+
+.cv-arrow {
+    font-size: 14px;
+    color: var(--accent);
+    opacity: 0;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
 @media (max-width: 768px) {
     .cs-wrap { padding: 48px 0 60px; }
-
     .container { padding: 0 20px; }
 
-    .cs-header {
-        flex-direction: column;
-        gap: 24px;
-    }
+    .cs-header { flex-direction: column; gap: 24px; }
 
     .cs-sub {
         max-width: 100%;
@@ -243,22 +494,15 @@
         font-size: 14px;
     }
 
-    .cs-meta {
-        grid-template-columns: 1fr 1fr;
-    }
+    .cs-meta { grid-template-columns: 1fr 1fr; }
+    .cs-meta-cell { padding: 16px 18px; }
 
-    .cs-meta-cell {
-        padding: 16px 18px;
-    }
-
-    .cs-deadline {
-        flex-direction: column;
-    }
+    .cs-deadline { flex-direction: column; }
 
     .cs-deadline-main {
         border-right: none;
         border-bottom: 1px solid var(--border-light);
-        padding: 20px 20px;
+        padding: 20px;
     }
 
     .cs-deadline-count {
@@ -277,51 +521,41 @@
         align-items: center;
     }
 
-    .cs-progress-label {
-        font-size: 8px;
-        white-space: nowrap;
+    .cs-progress-label { font-size: 8px; }
+    .cs-progress-pct { font-size: 12px; flex-shrink: 0; }
+    .cs-bar-wrap { flex: 1; min-width: 0; }
+
+    .cs-cta { gap: 20px; flex-direction: column; }
+    .cta-link { font-size: 11px; }
+
+    .cv-minor {
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        padding: 14px 16px;
     }
 
-    .cs-progress-pct {
+    .cv-arrow { display: none; }
+    .cv-pill-planned { display: none; }
+
+    .cv-minor-done::after {
+        content: '↗';
+        position: absolute;
+        top: 14px;
+        right: 16px;
         font-size: 12px;
-        white-space: nowrap;
-        flex-shrink: 0;
+        color: var(--accent);
+        opacity: 0.5;
     }
 
-    .cs-bar-wrap {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .cs-cta {
-        gap: 20px;
-        flex-direction: column;
-    }
-
-    .cta-link {
-        font-size: 11px;
-    }
-
-    .footer-inner .footer-mono:last-child {
-        display: none;
-    }
+    .cv-major-right .cv-status-done,
+    .cv-major-right .cv-status-current,
+    .cv-major-right .cv-pill-planned { display: none; }
 }
 
 @media (max-width: 480px) {
-    .cs-title {
-        font-size: clamp(2rem, 12vw, 2.8rem);
-        letter-spacing: -1px;
-    }
-
+    .cs-title { font-size: clamp(2rem, 12vw, 2.8rem); letter-spacing: -1px; }
     .cs-eyebrow { font-size: 9px; }
-
-    .cs-meta { grid-template-columns: 1fr 1fr; }
-
     .cs-meta-cell { padding: 14px 16px; }
-}
-
-
-    
 }
 </style>
 </head>
@@ -407,6 +641,193 @@
                 <span class="cs-progress-pct" id="csPct">0%</span>
             </div>
 
+            <!-- VERSION TIMELINE -->
+            <div class="cs-versions">
+                <div class="cs-versions-eyebrow">Version Roadmap</div>
+
+                <!-- V1 — DONE -->
+                <div class="cv-major cv-major-done">
+                    <button class="cv-major-header" onclick="toggleMajor(this)">
+                        <div class="cv-major-left">
+                            <span class="cv-major-badge cv-badge-done">v1.0</span>
+                            <div>
+                                <div class="cv-major-name">ePinas Registry</div>
+                                <div class="cv-major-label">Completed · 3 updates</div>
+                            </div>
+                        </div>
+                        <div class="cv-major-right">
+                            <span class="cv-status-done">Completed</span>
+                            <i class="fas fa-chevron-down cv-chevron"></i>
+                        </div>
+                    </button>
+                    <div class="cv-minor-list cv-collapsed">
+                        <a href="project-template.html" class="cv-minor cv-minor-done">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v1.0</span>
+                                <div class="cv-minor-dot cv-dot-done"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Initial Release</div>
+                                <div class="cv-minor-desc">Resident registration, identity verification, secure auth, document requests and online payments.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Registration</span>
+                                    <span class="cv-chip">Auth</span>
+                                    <span class="cv-chip">Documents</span>
+                                    <span class="cv-chip">Payments</span>
+                                </div>
+                            </div>
+                            <span class="cv-arrow">↗</span>
+                        </a>
+                        <a href="project-v1-1.html" class="cv-minor cv-minor-done">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v1.1</span>
+                                <div class="cv-minor-dot cv-dot-done"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Dashboard &amp; Profile</div>
+                                <div class="cv-minor-desc">Resident dashboard, profile management, notification inbox and security settings.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Dashboard</span>
+                                    <span class="cv-chip">Notifications</span>
+                                </div>
+                            </div>
+                            <span class="cv-arrow">↗</span>
+                        </a>
+                        <a href="project-v1-2.html" class="cv-minor cv-minor-done">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v1.2</span>
+                                <div class="cv-minor-dot cv-dot-done"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Admin Tools &amp; Audit</div>
+                                <div class="cv-minor-desc">Resident directory, admin approval workflow improvements and full audit logging.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Admin</span>
+                                    <span class="cv-chip">Audit Log</span>
+                                    <span class="cv-chip">Directory</span>
+                                </div>
+                            </div>
+                            <span class="cv-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- V2 — CURRENT -->
+                <div class="cv-major cv-major-current">
+                    <button class="cv-major-header" onclick="toggleMajor(this)">
+                        <div class="cv-major-left">
+                            <span class="cv-major-badge cv-badge-current">v2.0</span>
+                            <div>
+                                <div class="cv-major-name">ePinas Community</div>
+                                <div class="cv-major-label">In Progress · 1 of 3 updates done</div>
+                            </div>
+                        </div>
+                        <div class="cv-major-right">
+                            <span class="cv-status-current">In Progress</span>
+                            <i class="fas fa-chevron-down cv-chevron"></i>
+                        </div>
+                    </button>
+                    <div class="cv-minor-list">
+                        <a href="project-v2-0.html" class="cv-minor cv-minor-done">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v2.0</span>
+                                <div class="cv-minor-dot cv-dot-done"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Helpdesk &amp; Reporting</div>
+                                <div class="cv-minor-desc">Residents submit complaints and service requests directly through the platform.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Helpdesk</span>
+                                    <span class="cv-chip">Ticketing</span>
+                                </div>
+                            </div>
+                            <span class="cv-arrow">↗</span>
+                        </a>
+                        <div class="cv-minor cv-minor-active">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v2.1</span>
+                                <div class="cv-minor-dot cv-dot-active"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Community Alerts</div>
+                                <div class="cv-minor-desc">Real-time barangay-wide alerts and emergency notifications pushed to all residents.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Alerts</span>
+                                    <span class="cv-chip">Notifications</span>
+                                </div>
+                            </div>
+                            <span class="cv-status-current" style="font-size:9px;">Building</span>
+                        </div>
+                        <div class="cv-minor cv-minor-planned">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v2.2</span>
+                                <div class="cv-minor-dot cv-dot-planned"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Announcements Board</div>
+                                <div class="cv-minor-desc">Official barangay announcements, events and public notices managed by administrators.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Announcements</span>
+                                    <span class="cv-chip">Events</span>
+                                </div>
+                            </div>
+                            <span class="cv-pill-planned">Planned</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- V3 — PLANNED -->
+                <div class="cv-major cv-major-planned">
+                    <button class="cv-major-header" onclick="toggleMajor(this)">
+                        <div class="cv-major-left">
+                            <span class="cv-major-badge cv-badge-planned">v3.0</span>
+                            <div>
+                                <div class="cv-major-name">ePinas Health &amp; Welfare</div>
+                                <div class="cv-major-label">Planned</div>
+                            </div>
+                        </div>
+                        <div class="cv-major-right">
+                            <span class="cv-pill-planned">Planned</span>
+                            <i class="fas fa-chevron-down cv-chevron"></i>
+                        </div>
+                    </button>
+                    <div class="cv-minor-list cv-collapsed">
+                        <div class="cv-minor cv-minor-planned">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v3.0</span>
+                                <div class="cv-minor-dot cv-dot-planned"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Health Records</div>
+                                <div class="cv-minor-desc">Barangay health records management and health worker tools.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Health</span>
+                                    <span class="cv-chip">Records</span>
+                                </div>
+                            </div>
+                            <span class="cv-pill-planned">Planned</span>
+                        </div>
+                        <div class="cv-minor cv-minor-planned">
+                            <div class="cv-minor-left">
+                                <span class="cv-minor-tag">v3.1</span>
+                                <div class="cv-minor-dot cv-dot-planned"></div>
+                            </div>
+                            <div class="cv-minor-info">
+                                <div class="cv-minor-name">Social Welfare</div>
+                                <div class="cv-minor-desc">Social welfare beneficiary tracking and aid distribution management.</div>
+                                <div class="cv-minor-chips">
+                                    <span class="cv-chip">Welfare</span>
+                                    <span class="cv-chip">Aid</span>
+                                </div>
+                            </div>
+                            <span class="cv-pill-planned">Planned</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END VERSION TIMELINE -->
+
             <div class="cs-cta">
                 <a href="index.html#work" class="cta-link">View other work <span>↓</span></a>
                 <a href="mailto:your.email@example.com" class="cta-link">Contact me <span>→</span></a>
@@ -425,8 +846,8 @@
 
 <script>
     /* ---- config: set these per project ---- */
-    const START_DATE  = '2026-04-01';
-    const TARGET_DATE = '2026-05-10';
+    const START_DATE   = '2026-04-01';
+    const TARGET_DATE  = '2026-05-10';
     const PROJECT_NAME = 'ePinas Local';
 
     /* ---- deadline timer ---- */
@@ -434,7 +855,6 @@
         const start  = new Date(START_DATE);
         const target = new Date(TARGET_DATE);
         const today  = new Date();
-
         [start, target, today].forEach(d => d.setHours(0,0,0,0));
 
         const totalDays = Math.ceil((target - start)  / 864e5);
@@ -447,16 +867,35 @@
         document.getElementById('csDays').textContent = daysLeft > 0 ? daysLeft : 0;
         document.getElementById('csDate').textContent =
             'Due ' + target.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-
         document.getElementById('csBarFill').style.width = pct + '%';
-        document.getElementById('csPct').textContent     = pct + '%';
+        document.getElementById('csPct').textContent = pct + '%';
 
         el.classList.remove('urgent','overdue');
-        if (daysLeft <= 0)  el.classList.add('overdue');
+        if (daysLeft <= 0) el.classList.add('overdue');
         else if (daysLeft <= 14) el.classList.add('urgent');
     }
 
     updateTimer();
+
+    /* ---- version timeline toggle ---- */
+    function toggleMajor(btn) {
+        const major = btn.closest('.cv-major');
+        const list  = major.querySelector('.cv-minor-list');
+        const isOpen = major.classList.contains('cv-open');
+        if (isOpen) {
+            major.classList.remove('cv-open');
+            list.classList.add('cv-collapsed');
+        } else {
+            major.classList.add('cv-open');
+            list.classList.remove('cv-collapsed');
+        }
+    }
+
+    /* open current version by default */
+    document.querySelectorAll('.cv-major-current').forEach(el => {
+        el.classList.add('cv-open');
+        el.querySelector('.cv-minor-list')?.classList.remove('cv-collapsed');
+    });
 
     /* ---- dark mode ---- */
     const toggle = document.getElementById('themeToggle');
