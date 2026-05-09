@@ -533,6 +533,20 @@
         gap: 12px;
         padding: 14px 16px;
     }
+    
+    .cv-minor-active {
+        grid-template-columns: 48px 1fr;
+    }
+    
+    .cv-minor-active .cv-status-current {
+        display: block;
+        grid-column: 2;
+        font-size: 8px;
+        padding: 3px 8px;
+        align-self: flex-start;
+        width: fit-content;
+        margin-top: 6px;
+    }
 
     .cv-arrow { display: none; }
     .cv-pill-planned { display: none; }
@@ -755,8 +769,8 @@
                                     <span class="cv-chip">Alerts</span>
                                     <span class="cv-chip">Notifications</span>
                                 </div>
+                                <span class="cv-status-current" style="font-size:9px; margin-top:6px; width:fit-content;">Building</span>
                             </div>
-                            <span class="cv-status-current" style="font-size:9px;">Building</span>
                         </div>
                         <div class="cv-minor cv-minor-planned">
                             <div class="cv-minor-left">
