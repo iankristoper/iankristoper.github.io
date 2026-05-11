@@ -280,8 +280,8 @@
 }
 
 .cv-major-name {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
     color: var(--text-main);
     letter-spacing: -0.3px;
 }
@@ -381,10 +381,10 @@
 
 .cv-minor {
     display: grid;
-    grid-template-columns: 64px 1fr auto;
-    gap: 16px;
+    grid-template-columns: 72px 1fr auto;
+    gap: 20px;
     align-items: center;
-    padding: 16px 20px;
+    padding: 20px 24px;
     border-bottom: 1px solid var(--border-light);
     text-decoration: none;
     color: inherit;
@@ -406,21 +406,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .cv-minor-tag {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: var(--text-faint);
+    color: var(--text-muted);
     white-space: nowrap;
 }
 
 .cv-minor-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
 }
@@ -428,41 +428,56 @@
 .cv-dot-done { background: #22c55e; }
 .cv-dot-active {
     background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    box-shadow: 0 0 0 4px rgba(52,152,219,0.2);
     animation: pulse 2s infinite;
 }
 .cv-dot-planned { background: var(--border-light); }
 
-.cv-minor-info { display: flex; flex-direction: column; gap: 4px; }
+.cv-minor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cv-minor-date {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+}
 
 .cv-minor-name {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.2px;
+    letter-spacing: -0.3px;
     transition: color 0.2s;
 }
 
 .cv-minor-desc {
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .cv-minor-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
     margin-top: 4px;
 }
 
 .cv-chip {
     font-family: var(--font-mono);
-    font-size: 9px;
-    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
     border-radius: 3px;
     background: var(--bg-body);
-    color: var(--text-faint);
+    color: var(--text-muted);
     border: 1px solid var(--border-light);
 }
 
@@ -472,7 +487,7 @@
 }
 
 .cv-arrow {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--accent);
     opacity: 0;
     flex-shrink: 0;
@@ -529,13 +544,13 @@
     .cta-link { font-size: 11px; }
 
     .cv-minor {
-        grid-template-columns: 48px 1fr;
-        gap: 12px;
-        padding: 14px 16px;
+        grid-template-columns: 52px 1fr;
+        gap: 14px;
+        padding: 16px;
     }
 
     .cv-minor-active {
-        grid-template-columns: 48px 1fr;
+        grid-template-columns: 52px 1fr;
     }
 
     .cv-minor-active .cv-status-current {
@@ -552,9 +567,9 @@
     .cv-minor-done::after {
         content: '↗';
         position: absolute;
-        top: 14px;
+        top: 16px;
         right: 16px;
-        font-size: 12px;
+        font-size: 13px;
         color: var(--accent);
         opacity: 0.5;
     }
@@ -681,6 +696,7 @@
                                 <div class="cv-minor-dot cv-dot-done"></div>
                             </div>
                             <div class="cv-minor-info">
+                                <div class="cv-minor-date">Released · Apr 1, 2026</div>
                                 <div class="cv-minor-name">Initial Release</div>
                                 <div class="cv-minor-desc">Document request system, issue reporting, and resident helpdesk — allowing citizens to request official documents, report concerns, and seek support from local barangay staff online.</div>
                                 <div class="cv-minor-chips">
@@ -731,12 +747,10 @@
 </div>
 
 <script>
-    /* ---- config: set these per project ---- */
     const START_DATE   = '2026-04-01';
     const TARGET_DATE  = '2026-05-10';
     const PROJECT_NAME = 'ePinas v1.0';
 
-    /* ---- deadline timer ---- */
     function updateTimer() {
         const start  = new Date(START_DATE);
         const target = new Date(TARGET_DATE);
@@ -763,7 +777,6 @@
 
     updateTimer();
 
-    /* ---- version timeline toggle ---- */
     function toggleMajor(btn) {
         const major = btn.closest('.cv-major');
         const list  = major.querySelector('.cv-minor-list');
@@ -777,13 +790,11 @@
         }
     }
 
-    /* open current version by default */
     document.querySelectorAll('.cv-major-current').forEach(el => {
         el.classList.add('cv-open');
         el.querySelector('.cv-minor-list')?.classList.remove('cv-collapsed');
     });
 
-    /* ---- dark mode ---- */
     const toggle = document.getElementById('themeToggle');
     const icon   = document.getElementById('themeIcon');
 
