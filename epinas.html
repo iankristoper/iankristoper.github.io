@@ -533,17 +533,15 @@
         gap: 12px;
         padding: 14px 16px;
     }
-    
+
     .cv-minor-active {
         grid-template-columns: 48px 1fr;
     }
-    
+
     .cv-minor-active .cv-status-current {
         display: block;
-        grid-column: 2;
         font-size: 8px;
         padding: 3px 8px;
-        align-self: flex-start;
         width: fit-content;
         margin-top: 6px;
     }
@@ -659,81 +657,14 @@
             <div class="cs-versions">
                 <div class="cs-versions-eyebrow">Version Roadmap</div>
 
-                <!-- V1 — DONE -->
-                <div class="cv-major cv-major-done">
-                    <button class="cv-major-header" onclick="toggleMajor(this)">
-                        <div class="cv-major-left">
-                            <span class="cv-major-badge cv-badge-done">v1.0</span>
-                            <div>
-                                <div class="cv-major-name">ePinas Registry</div>
-                                <div class="cv-major-label">Completed · 3 updates</div>
-                            </div>
-                        </div>
-                        <div class="cv-major-right">
-                            <span class="cv-status-done">Completed</span>
-                            <i class="fas fa-chevron-down cv-chevron"></i>
-                        </div>
-                    </button>
-                    <div class="cv-minor-list cv-collapsed">
-                        <a href="project-template.html" class="cv-minor cv-minor-done">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v1.0</span>
-                                <div class="cv-minor-dot cv-dot-done"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Initial Release</div>
-                                <div class="cv-minor-desc">Resident registration, identity verification, secure auth, document requests and online payments.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Registration</span>
-                                    <span class="cv-chip">Auth</span>
-                                    <span class="cv-chip">Documents</span>
-                                    <span class="cv-chip">Payments</span>
-                                </div>
-                            </div>
-                            <span class="cv-arrow">↗</span>
-                        </a>
-                        <a href="project-v1-1.html" class="cv-minor cv-minor-done">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v1.1</span>
-                                <div class="cv-minor-dot cv-dot-done"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Dashboard &amp; Profile</div>
-                                <div class="cv-minor-desc">Resident dashboard, profile management, notification inbox and security settings.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Dashboard</span>
-                                    <span class="cv-chip">Notifications</span>
-                                </div>
-                            </div>
-                            <span class="cv-arrow">↗</span>
-                        </a>
-                        <a href="project-v1-2.html" class="cv-minor cv-minor-done">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v1.2</span>
-                                <div class="cv-minor-dot cv-dot-done"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Admin Tools &amp; Audit</div>
-                                <div class="cv-minor-desc">Resident directory, admin approval workflow improvements and full audit logging.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Admin</span>
-                                    <span class="cv-chip">Audit Log</span>
-                                    <span class="cv-chip">Directory</span>
-                                </div>
-                            </div>
-                            <span class="cv-arrow">↗</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- V2 — CURRENT -->
+                <!-- V1 — CURRENT -->
                 <div class="cv-major cv-major-current">
                     <button class="cv-major-header" onclick="toggleMajor(this)">
                         <div class="cv-major-left">
-                            <span class="cv-major-badge cv-badge-current">v2.0</span>
+                            <span class="cv-major-badge cv-badge-current">v1.0</span>
                             <div>
-                                <div class="cv-major-name">ePinas Community</div>
-                                <div class="cv-major-label">In Progress · 1 of 3 updates done</div>
+                                <div class="cv-major-name">ePinas Registry</div>
+                                <div class="cv-major-label">In Progress · 1 of 2 updates done</div>
                             </div>
                         </div>
                         <div class="cv-major-right">
@@ -742,100 +673,41 @@
                         </div>
                     </button>
                     <div class="cv-minor-list">
-                        <a href="project-v2-0.html" class="cv-minor cv-minor-done">
+
+                        <!-- v1.0 — DONE -->
+                        <a href="project-template.html" class="cv-minor cv-minor-done">
                             <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v2.0</span>
+                                <span class="cv-minor-tag">v1.0</span>
                                 <div class="cv-minor-dot cv-dot-done"></div>
                             </div>
                             <div class="cv-minor-info">
-                                <div class="cv-minor-name">Helpdesk &amp; Reporting</div>
-                                <div class="cv-minor-desc">Residents submit complaints and service requests directly through the platform.</div>
+                                <div class="cv-minor-name">Initial Release</div>
+                                <div class="cv-minor-desc">Document request system, issue reporting, and resident helpdesk — allowing citizens to request official documents, report concerns, and seek support from local barangay staff online.</div>
                                 <div class="cv-minor-chips">
+                                    <span class="cv-chip">Document Requests</span>
+                                    <span class="cv-chip">Reporting</span>
                                     <span class="cv-chip">Helpdesk</span>
-                                    <span class="cv-chip">Ticketing</span>
                                 </div>
                             </div>
                             <span class="cv-arrow">↗</span>
                         </a>
+
+                        <!-- v1.1 — BUILDING -->
                         <div class="cv-minor cv-minor-active">
                             <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v2.1</span>
+                                <span class="cv-minor-tag">v1.1</span>
                                 <div class="cv-minor-dot cv-dot-active"></div>
                             </div>
                             <div class="cv-minor-info">
-                                <div class="cv-minor-name">Community Alerts</div>
-                                <div class="cv-minor-desc">Real-time barangay-wide alerts and emergency notifications pushed to all residents.</div>
+                                <div class="cv-minor-name">Coming Soon</div>
+                                <div class="cv-minor-desc">Next update is currently in development. Details will be added once the build is underway.</div>
                                 <div class="cv-minor-chips">
-                                    <span class="cv-chip">Alerts</span>
-                                    <span class="cv-chip">Notifications</span>
+                                    <span class="cv-chip">TBA</span>
                                 </div>
                                 <span class="cv-status-current" style="font-size:9px; margin-top:6px; width:fit-content;">Building</span>
                             </div>
                         </div>
-                        <div class="cv-minor cv-minor-planned">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v2.2</span>
-                                <div class="cv-minor-dot cv-dot-planned"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Announcements Board</div>
-                                <div class="cv-minor-desc">Official barangay announcements, events and public notices managed by administrators.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Announcements</span>
-                                    <span class="cv-chip">Events</span>
-                                </div>
-                            </div>
-                            <span class="cv-pill-planned">Planned</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- V3 — PLANNED -->
-                <div class="cv-major cv-major-planned">
-                    <button class="cv-major-header" onclick="toggleMajor(this)">
-                        <div class="cv-major-left">
-                            <span class="cv-major-badge cv-badge-planned">v3.0</span>
-                            <div>
-                                <div class="cv-major-name">ePinas Health &amp; Welfare</div>
-                                <div class="cv-major-label">Planned</div>
-                            </div>
-                        </div>
-                        <div class="cv-major-right">
-                            <span class="cv-pill-planned">Planned</span>
-                            <i class="fas fa-chevron-down cv-chevron"></i>
-                        </div>
-                    </button>
-                    <div class="cv-minor-list cv-collapsed">
-                        <div class="cv-minor cv-minor-planned">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v3.0</span>
-                                <div class="cv-minor-dot cv-dot-planned"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Health Records</div>
-                                <div class="cv-minor-desc">Barangay health records management and health worker tools.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Health</span>
-                                    <span class="cv-chip">Records</span>
-                                </div>
-                            </div>
-                            <span class="cv-pill-planned">Planned</span>
-                        </div>
-                        <div class="cv-minor cv-minor-planned">
-                            <div class="cv-minor-left">
-                                <span class="cv-minor-tag">v3.1</span>
-                                <div class="cv-minor-dot cv-dot-planned"></div>
-                            </div>
-                            <div class="cv-minor-info">
-                                <div class="cv-minor-name">Social Welfare</div>
-                                <div class="cv-minor-desc">Social welfare beneficiary tracking and aid distribution management.</div>
-                                <div class="cv-minor-chips">
-                                    <span class="cv-chip">Welfare</span>
-                                    <span class="cv-chip">Aid</span>
-                                </div>
-                            </div>
-                            <span class="cv-pill-planned">Planned</span>
-                        </div>
                     </div>
                 </div>
 
@@ -862,7 +734,7 @@
     /* ---- config: set these per project ---- */
     const START_DATE   = '2026-04-01';
     const TARGET_DATE  = '2026-05-10';
-    const PROJECT_NAME = 'ePinas Local';
+    const PROJECT_NAME = 'ePinas v1.0';
 
     /* ---- deadline timer ---- */
     function updateTimer() {
