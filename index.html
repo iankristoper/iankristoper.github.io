@@ -271,53 +271,41 @@
         });
 
 
-        const termLines = [
-    { type: 'cmd', text: 'cat roadmap.md' },
-    { type: 'heading', text: '# Backend Roadmap — 2026' },
-    { type: 'blank' },
-    { type: 'done', text: '[✓]  Core Java · OOP · Collections · Streams' },
-    { type: 'done', text: '[✓]  Spring Boot · REST APIs · JPA' },
-    { type: 'active', text: '[→]  Spring Security · JWT auth' },
-    { type: 'todo', text: '[ ]  JUnit · Mockito · Testing' },
-    { type: 'todo', text: '[ ]  Docker · GitHub Actions · CI/CD' },
-    { type: 'todo', text: '[ ]  AWS · Cloud deployment' },
-    { type: 'blank' },
-    { type: 'cmd', text: 'echo $CURRENT_FOCUS' },
-    { type: 'done', text: 'Spring Security + JWT — Week 12' },
-    { type: 'blank' },
-    { type: 'cursor' },
-  ];
+const termLines = [
+  { k: 'cmd',    t: 'cat roadmap.md' },
+  { k: 'h',      t: '# Backend Roadmap — 2026' },
+  { k: 'b' },
+  { k: 'done',   t: '[✓]  Core Java · OOP · Collections · Streams' },
+  { k: 'done',   t: '[✓]  Spring Boot · REST APIs · JPA' },
+  { k: 'active', t: '[→]  Spring Security · JWT auth' },
+  { k: 'dim',    t: '[ ]  JUnit · Mockito · Testing' },
+  { k: 'dim',    t: '[ ]  Docker · GitHub Actions · CI/CD' },
+  { k: 'dim',    t: '[ ]  AWS · Cloud deployment' },
+  { k: 'b' },
+  { k: 'cmd',    t: 'echo $CURRENT_FOCUS' },
+  { k: 'done',   t: 'Spring Security + JWT — Week 12' },
+  { k: 'b' },
+  { k: 'cur' },
+];
 
-  const body = document.getElementById('terminalBody');
-  let idx = 0;
-
-  function appendLine() {
-    if (idx >= termLines.length) return;
-    const l = termLines[idx++];
-    const div = document.createElement('div');
-    div.className = 't-line';
-
-    if (l.type === 'cmd') {
-      div.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> ${l.text}</span>`;
-    } else if (l.type === 'blank') {
-      div.innerHTML = '&nbsp;';
-    } else if (l.type === 'cursor') {
-      div.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> </span><span class="t-cursor"></span>`;
-    } else if (l.type === 'heading') {
-      div.innerHTML = `<span class="t-heading">${l.text}</span>`;
-    } else if (l.type === 'done') {
-      div.innerHTML = `<span class="t-out">${l.text}</span>`;
-    } else if (l.type === 'active') {
-      div.innerHTML = `<span class="t-out active">${l.text}</span>`;
-    } else if (l.type === 'todo') {
-      div.innerHTML = `<span class="t-out dim">${l.text}</span>`;
-    }
-
-    body.appendChild(div);
-    setTimeout(appendLine, idx === 1 ? 400 : 75);
-  }
-
-  setTimeout(appendLine, 800);
+const tb = document.getElementById('terminalBody');
+let i = 0;
+function next() {
+  if (i >= termLines.length) return;
+  const l = termLines[i++];
+  const s = document.createElement('span');
+  s.className = 't-line';
+  if (l.k === 'cmd')    s.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> ${l.t}</span>`;
+  else if (l.k === 'b') s.innerHTML = '&nbsp;';
+  else if (l.k === 'cur') s.innerHTML = `<span class="t-prompt">~ $</span> <span class="t-cursor"></span>`;
+  else if (l.k === 'h') s.innerHTML = `<span class="t-heading">${l.t}</span>`;
+  else if (l.k === 'done')   s.innerHTML = `<span class="t-out">${l.t}</span>`;
+  else if (l.k === 'active') s.innerHTML = `<span class="t-out active">${l.t}</span>`;
+  else if (l.k === 'dim')    s.innerHTML = `<span class="t-out dim">${l.t}</span>`;
+  tb.appendChild(s);
+  setTimeout(next, i === 1 ? 350 : 70);
+}
+setTimeout(next, 800);
     </script>
 </body>
 </html>
