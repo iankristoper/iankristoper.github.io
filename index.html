@@ -264,6 +264,55 @@
                 btn.setAttribute('aria-expanded', !group.classList.contains('collapsed'));
             });
         });
+
+
+        const termLines = [
+    { type: 'cmd', text: 'cat roadmap.md' },
+    { type: 'heading', text: '# Backend Roadmap — 2026' },
+    { type: 'blank' },
+    { type: 'done', text: '[✓]  Core Java · OOP · Collections · Streams' },
+    { type: 'done', text: '[✓]  Spring Boot · REST APIs · JPA' },
+    { type: 'active', text: '[→]  Spring Security · JWT auth' },
+    { type: 'todo', text: '[ ]  JUnit · Mockito · Testing' },
+    { type: 'todo', text: '[ ]  Docker · GitHub Actions · CI/CD' },
+    { type: 'todo', text: '[ ]  AWS · Cloud deployment' },
+    { type: 'blank' },
+    { type: 'cmd', text: 'echo $CURRENT_FOCUS' },
+    { type: 'done', text: 'Spring Security + JWT — Week 12' },
+    { type: 'blank' },
+    { type: 'cursor' },
+  ];
+
+  const body = document.getElementById('terminalBody');
+  let idx = 0;
+
+  function appendLine() {
+    if (idx >= termLines.length) return;
+    const l = termLines[idx++];
+    const div = document.createElement('div');
+    div.className = 't-line';
+
+    if (l.type === 'cmd') {
+      div.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> ${l.text}</span>`;
+    } else if (l.type === 'blank') {
+      div.innerHTML = '&nbsp;';
+    } else if (l.type === 'cursor') {
+      div.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> </span><span class="t-cursor"></span>`;
+    } else if (l.type === 'heading') {
+      div.innerHTML = `<span class="t-heading">${l.text}</span>`;
+    } else if (l.type === 'done') {
+      div.innerHTML = `<span class="t-out">${l.text}</span>`;
+    } else if (l.type === 'active') {
+      div.innerHTML = `<span class="t-out active">${l.text}</span>`;
+    } else if (l.type === 'todo') {
+      div.innerHTML = `<span class="t-out dim">${l.text}</span>`;
+    }
+
+    body.appendChild(div);
+    setTimeout(appendLine, idx === 1 ? 400 : 75);
+  }
+
+  setTimeout(appendLine, 800);
     </script>
 </body>
 </html>
