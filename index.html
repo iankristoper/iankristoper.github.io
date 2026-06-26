@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dev_ian — Backend Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="desktop-overrides.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
@@ -35,63 +34,42 @@
     </header>
 
     <!-- HERO -->
-   <section class="hero">
-  <div class="hero-container">
-    <div class="hero-top-bar">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        Available for work
-      </div>
-      <div class="hero-topbar-right">
-        <span class="hero-loc">PH · Cebu</span>
-        <span class="hero-yr">2026</span>
-      </div>
-    </div>
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                Available for work &nbsp;·&nbsp;
+            </div>
 
-    <div class="hero-main">
-      <div class="hero-copy">
-        <h1 class="hero-h1">Building backend<br>systems that <em>scale.</em></h1>
+            <h1 class="hero-h1">
+                Still<br>
+                building<br>
+                and <em>learning.</em>
+            </h1>
 
-        <p class="hero-tagline">
-          Backend-focused developer building Java and Spring Boot systems
-          with clean APIs, reliable structure, and practical performance.
-        </p>
-      </div>
+            <div class="hero-bottom">
+                <p class="hero-sub">
+                    Aspiring backend engineer focused on Java, Spring,
+                    &amp; backend systems.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num accent">1</span>
+                        <span class="stat-label">In Progress</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="hero-side">
-        <div class="hero-stats-col">
-          <div class="hero-stat-item">
-            <span class="stat-num">3</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="stat-num accent">1</span>
-            <span class="stat-label">In Progress</span>
-          </div>
+            <div class="hero-cta-row">
+                <a href="#work" class="cta-link">View my work <span>↓</span></a>
+                <a href="#contact" class="cta-link">Get in touch <span>→</span></a>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="hero-terminal-wrap">
-      <div class="hero-terminal">
-        <div class="terminal-bar">
-          <span class="tbar-dot" style="background:#ff5f57"></span>
-          <span class="tbar-dot" style="background:#febc2e"></span>
-          <span class="tbar-dot" style="background:#28c840"></span>
-          <span class="tbar-label">dev_ian — roadmap.md</span>
-        </div>
-        <div class="terminal-body" id="terminalBody"></div>
-      </div>
-    </div>
-
-    <div class="hero-bottom-bar">
-      <div class="hero-cta-row">
-        <a href="#work" class="cta-link">View my work <span>↓</span></a>
-        <a href="#contact" class="cta-link">Get in touch <span>→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- STACK -->
     <section id="stack" class="section">
@@ -262,43 +240,6 @@
                 btn.setAttribute('aria-expanded', !group.classList.contains('collapsed'));
             });
         });
-
-
-const termLines = [
-  { k: 'cmd',    t: 'cat notes.txt' },
-  { k: 'h',      t: '# Dev Notes' },
-  { k: 'b' },
-  { k: 'done',   t: '[✓]  Refactored utility functions' },
-  { k: 'done',   t: '[✓]  Reduced bundle size' },
-  { k: 'active', t: '[→]  Reviewing pull requests' },
-  { k: 'dim',    t: '[ ]  Update dependencies' },
-  { k: 'dim',    t: '[ ]  Improve documentation' },
-  { k: 'dim',    t: '[ ]  Optimize build pipeline' },
-  { k: 'b' },
-  { k: 'cmd',    t: 'echo $STATUS' },
-  { k: 'done',   t: 'Building cool stuff.' },
-  { k: 'b' },
-  { k: 'cur' },
-];
-
-const tb = document.getElementById('terminalBody');
-let i = 0;
-function next() {
-  if (i >= termLines.length) return;
-  const l = termLines[i++];
-  const s = document.createElement('span');
-  s.className = 't-line';
-  if (l.k === 'cmd')    s.innerHTML = `<span class="t-prompt">~ $</span><span class="t-cmd"> ${l.t}</span>`;
-  else if (l.k === 'b') s.innerHTML = '&nbsp;';
-  else if (l.k === 'cur') s.innerHTML = `<span class="t-prompt">~ $</span> <span class="t-cursor"></span>`;
-  else if (l.k === 'h') s.innerHTML = `<span class="t-heading">${l.t}</span>`;
-  else if (l.k === 'done')   s.innerHTML = `<span class="t-out">${l.t}</span>`;
-  else if (l.k === 'active') s.innerHTML = `<span class="t-out active">${l.t}</span>`;
-  else if (l.k === 'dim')    s.innerHTML = `<span class="t-out dim">${l.t}</span>`;
-  tb.appendChild(s);
-  setTimeout(next, i === 1 ? 350 : 70);
-}
-setTimeout(next, 800);
     </script>
 </body>
 </html>
