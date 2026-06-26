@@ -1,0 +1,210 @@
+/* =========================================
+   DESKTOP & LAPTOP OVERRIDES
+   Applies to screens 769px and wider.
+   Mobile styles are untouched.
+   ========================================= */
+ 
+@media (min-width: 769px) {
+ 
+    /* ── HEADER ───────────────────────────── */
+    .header-content {
+        height: 68px;
+        padding: 0 32px;
+    }
+ 
+    nav ul li a {
+        font-size: 0.82rem;
+        letter-spacing: 0.8px;
+        padding: 7px 12px;
+    }
+ 
+    /* ── HERO ─────────────────────────────── */
+    .hero {
+        min-height: 90vh; /* pulls hero down to a comfortable reading height */
+    }
+ 
+    .hero-container {
+        padding: 100px 0 80px;
+    }
+ 
+    .hero-eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        margin-bottom: 24px;
+    }
+ 
+    /* Dial down the monster headline to a confident, scannable size */
+    .hero-h1 {
+        font-size: clamp(44px, 6vw, 72px); /* was clamp(52px, 9vw, 96px) */
+        letter-spacing: -3px;
+        margin-bottom: 40px;
+        line-height: 0.95;
+    }
+ 
+    .hero-sub {
+        font-size: 14px;
+        line-height: 1.75;
+        max-width: 380px;
+    }
+ 
+    /* Stat numbers — still bold, not overwhelming */
+    .stat-num {
+        font-size: clamp(28px, 3vw, 42px); /* was clamp(32px, 4vw, 48px) */
+        letter-spacing: -1.5px;
+    }
+ 
+    .stat-label {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+ 
+    .hero-cta-row {
+        padding-top: 28px;
+        gap: 28px;
+    }
+ 
+    .cta-link {
+        font-size: 12px;
+        letter-spacing: 2.5px;
+    }
+ 
+    /* ── SECTIONS ─────────────────────────── */
+    .section {
+        padding: 80px 0; /* was 100px — tightens the scroll journey */
+    }
+ 
+    /* Eyebrow labels — slightly bigger so they register instantly */
+    .section-eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        margin-bottom: 32px;
+    }
+ 
+    /* ── STACK ────────────────────────────── */
+    .stack-groups {
+        gap: 0;
+    }
+ 
+    .stack-group-header {
+        padding: 18px 28px;
+    }
+ 
+    /* Category title — bump up so it reads as a real heading */
+    .stack-group-title {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+ 
+    .stack-group-count {
+        font-size: 11px;
+    }
+ 
+    .stack-row {
+        padding: 13px 28px;
+    }
+ 
+    /* Stack item name — clearer hierarchy */
+    .stack-name {
+        font-size: 15px;
+        letter-spacing: -0.2px;
+    }
+ 
+    .stack-type {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+ 
+    /* ── WORK LIST ────────────────────────── */
+    .work-list {
+        /* give it a little breathing room from the eyebrow */
+    }
+ 
+    .work-row {
+        grid-template-columns: 52px 1fr auto;
+        gap: 28px;
+        padding: 30px 0;
+    }
+ 
+    .work-num {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+ 
+    /* Work title — the star of the row */
+    .work-title {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+        margin-bottom: 6px;
+    }
+ 
+    /* Description — raise from 13px so it's actually read */
+    .work-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+        max-width: 520px;
+    }
+ 
+    .work-tag {
+        font-size: 10.5px;
+        letter-spacing: 0.5px;
+        padding: 4px 9px;
+    }
+ 
+    .work-badge {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        padding: 5px 12px;
+    }
+ 
+    .work-arrow {
+        font-size: 20px;
+    }
+ 
+    /* ── CONTACT ──────────────────────────── */
+    .contact-inner {
+        gap: 60px; /* was 80px — closes the awkward gulf */
+        align-items: center;
+    }
+ 
+    .contact-h2 {
+        font-size: clamp(28px, 3.2vw, 42px); /* was up to 44px */
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+        margin-top: 12px;
+    }
+ 
+    .contact-link {
+        font-size: 15px;
+        padding: 16px 0;
+        letter-spacing: -0.2px;
+    }
+ 
+    /* ── FOOTER ───────────────────────────── */
+    .footer-mono {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+}
+ 
+/* ── LARGE MONITORS (1280px+) ─────────────
+   Extra nudge so it doesn't feel stretched on wide screens */
+@media (min-width: 1280px) {
+    .hero-h1 {
+        font-size: clamp(56px, 5vw, 72px);
+    }
+ 
+    .hero-sub {
+        font-size: 14.5px;
+    }
+ 
+    .work-title {
+        font-size: 21px;
+    }
+ 
+    .work-desc {
+        font-size: 14px;
+    }
+}
+ 
