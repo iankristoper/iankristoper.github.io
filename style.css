@@ -679,11 +679,8 @@ nav ul li a:hover { color: var(--accent); }
     .work-row { grid-template-columns: 36px 1fr; gap: 16px; }
     .work-right { display: none; }
 
-    .section { padding: 60px 0; }
-
-    .contact-inner { grid-template-columns: 1fr; gap: 20px; }
-    .contact-right { margin-top: 0; border-top: none; }
-    .contact-h2 { margin-top: 0; }
+    .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+    .contact-right { margin-top: 0; }
 
     .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
 }
