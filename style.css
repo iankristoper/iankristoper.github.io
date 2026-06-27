@@ -43,9 +43,10 @@ body {
 }
 
 .container {
-    width: 88%;
-    max-width: 1280px;   /* was 1100px — gives more room on large screens */
-    margin: auto;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 100px); /* gutters scale with screen width */
 }
 
 a { text-decoration: none; color: inherit; transition: 0.2s; }
@@ -142,14 +143,16 @@ nav ul li a:hover { color: var(--accent); }
    4. HERO
    ========================================= */
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 5px;
+    padding-top: 64px;      /* offset the fixed header height */
 }
 
 .hero-container {
-    padding: 100px 0 120px;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .hero-eyebrow {
@@ -178,14 +181,14 @@ nav ul li a:hover { color: var(--accent); }
     50% { opacity: 0.4; transform: scale(0.8); }
 }
 
-/* KEY FIX: clamp now scales higher for large screens */
+/* KEY FIX: vw-based scaling so headline always fills proportional space */
 .hero-h1 {
-    font-size: clamp(52px, 7.5vw, 112px);   /* was clamp(52px, 9vw, 96px) */
+    font-size: clamp(48px, 8vw, 130px);
     font-weight: 800;
     line-height: 0.92;
-    letter-spacing: -4px;
+    letter-spacing: -3px;
     color: var(--text-main);
-    margin-bottom: 56px;
+    margin-bottom: clamp(32px, 4vh, 56px);
 }
 
 .hero-h1 em {
@@ -198,13 +201,13 @@ nav ul li a:hover { color: var(--accent); }
     justify-content: space-between;
     align-items: flex-end;
     gap: 40px;
-    margin-bottom: 56px;
+    margin-bottom: clamp(32px, 4vh, 56px);
     flex-wrap: wrap;
 }
 
 /* KEY FIX: sub text was thin and unreadable */
 .hero-sub {
-    font-size: 16px;              /* was 13px */
+    font-size: clamp(14px, 1.1vw, 18px);
     color: var(--text-muted);
     max-width: 480px;
     line-height: 1.75;
@@ -224,7 +227,7 @@ nav ul li a:hover { color: var(--accent); }
 
 .stat-num {
     display: block;
-    font-size: clamp(36px, 4vw, 56px);   /* was clamp(32px, 4vw, 48px) */
+    font-size: clamp(36px, 4vw, 72px);
     font-weight: 800;
     letter-spacing: -2px;
     color: var(--text-main);
@@ -622,37 +625,24 @@ nav ul li a:hover { color: var(--accent); }
 }
 
 /* =========================================
-   10. LARGE SCREEN BOOST  (≥ 1440px)
+   10. LARGE SCREEN SCALING  (≥ 1440px)
    ========================================= */
 @media (min-width: 1440px) {
-    .hero-sub {
-        font-size: 17px;
-        max-width: 540px;
-    }
-
-    .work-title { font-size: 22px; }
-    .work-desc  { font-size: 15px; }
-
+    .hero-sub     { font-size: clamp(16px, 1.1vw, 18px); }
+    .work-title   { font-size: 22px; }
+    .work-desc    { font-size: 15px; }
     .section-eyebrow { font-size: 14px; }
-
-    .stack-name { font-size: 16px; }
-    .stack-type { font-size: 12px; }
-
+    .stack-name   { font-size: 16px; }
+    .stack-type   { font-size: 12px; }
     .contact-link { font-size: 17px; padding: 24px 0; }
 }
 
 @media (min-width: 1920px) {
-    .container { max-width: 1480px; }
-
-    .hero-sub {
-        font-size: 18px;
-        max-width: 600px;
-    }
-
-    .work-title { font-size: 24px; }
-    .work-desc  { font-size: 16px; }
-    .stack-name { font-size: 17px; }
-    .contact-link { font-size: 18px; }
+    .work-title   { font-size: 26px; }
+    .work-desc    { font-size: 16px; }
+    .stack-name   { font-size: 18px; }
+    .contact-link { font-size: 19px; }
+    .section-eyebrow { font-size: 15px; }
 }
 
 /* =========================================
@@ -660,8 +650,8 @@ nav ul li a:hover { color: var(--accent); }
    ========================================= */
 @media (max-width: 768px) {
     nav { display: none; }
-    .hero { margin-top: 60px; min-height: 85vh; }
-    .hero-container { padding: 40px 0 60px; }
+    .hero { height: 100svh; padding-top: 60px; }
+    .hero-container { padding-top: 0; padding-bottom: 0; }
     .hero-btns { flex-direction: column; align-items: center; }
     .btn { min-width: 220px; }
 
